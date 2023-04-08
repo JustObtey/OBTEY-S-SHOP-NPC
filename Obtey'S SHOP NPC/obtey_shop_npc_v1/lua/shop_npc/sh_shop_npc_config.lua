@@ -1,25 +1,31 @@
-SHOPConfig = SHOPConfig or {}
+SHOPConfig = SHOPConfig or {} -- DO NOT TOUCH THIS
+
 
 
 SHOPConfig.equipement = {
-    -- {Name = "Le nom de votre objet", Model = "son modèle", cmd = "Son ID", Price = 100},
+    -- {Name = "Object name", Model = "His model", cmd = "His ID", Price = 100},
 }
 
 
 SHOPConfig.weapon = {
-    -- {Name = "Le nom de votre objet", Model = "son modèle", cmd = "Son ID", Price = 100},
+    -- {Name = "Object name", Model = "His model", cmd = "His ID", Price = 100},
 }
 
 
 SHOPConfig.ammo = {
-    -- {Name = "Le nom de votre objet", Model = "son modèle", cmd = "Son ID", Price = 100},
+    -- {Name = "Object name", Model = "His model", cmd = "His ID", Price = 100},
 }
 
 
 SHOPConfig.vip = {
-    -- {Name = "Le nom de votre objet", Model = "son modèle", cmd = "Son ID", Price = 100},
+    -- {Name = "Object name", Model = "His model", cmd = "His ID", Price = 100},
 }
 
 
-SHOPConfig.VIPGroup = "VIP" -- uniquement ce grade aura le droit d'acheter des objets dans le menu VIP
-SHOPConfig.VIPErrorMsg = "Vous n'êtes pas un VIP!"
+SHOPConfig.RobButtonText = "rob the store" -- The text to display inside of the "Rob" button
+
+SHOPConfig.BuyButtonText = "Buy" -- The text to display inside of the "Buy" button
+
+SHOPConfig.VIPGroup = "VIP" -- The name of the rank who can buy stuff in the VIP page
+
+SHOPConfig.VIPErrorMsg = "You are not a VIP!" -- The message to send when somebody who aren't allowed try to buy something in the VIP page
