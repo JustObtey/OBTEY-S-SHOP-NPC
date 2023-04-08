@@ -4,7 +4,7 @@ function ENT:Draw()
     self:DrawModel()
 end
 
-// Créer le texte qui s'affiche au dessus de la tête du NPC
+-- Create the text that appears above the NPC's
 hook.Add("PostDrawOpaqueRenderables", "Baseframe", function()
     for _, ent in pairs (ents.FindByClass("obtey_shop_npc")) do
         if ent:GetPos():Distance(LocalPlayer():GetPos()) < 500 then
@@ -20,7 +20,7 @@ hook.Add("PostDrawOpaqueRenderables", "Baseframe", function()
     end
 end)
 
-// Police d'écriture
+-- initialization of the fonts
 surface.CreateFont( "beatle", {
 	font = "Roboto",
 	extended = false,
@@ -57,7 +57,7 @@ local function Baseframe()
 
 
 
-// Frame de base
+-- Base frame
     local Baseframe = vgui.Create("DFrame")
         Baseframe:SetSize(ScrW()/2, ScrH()/1.5)
         Baseframe:Center()
@@ -70,14 +70,14 @@ local function Baseframe()
             draw.RoundedBox(5, 0, 0, w, h, Color(15, 15, 15, 200))
         end
 
-// Récuperer les dimensions de la frame
+-- Getting the frame dimensions
     local x, y = Baseframe:GetSize(x, y)
 
 
  -- -- -- -- Header -- -- -- --
 
 
-// Création du Header de la frame
+-- Creation of the header
     local header = vgui.Create("DPanel", Baseframe)
         header:SetSize(x, 30)
         header:SetPos(0, 0)
@@ -86,20 +86,20 @@ local function Baseframe()
             surface.DrawRect(0, 0, w, h)
         end
 
-// Création du bouton "Braquage"
+-- Creation of the "rob" button
     local rob = vgui.Create("DButton", header)
         rob:Dock(LEFT)
         rob:DockMargin(5, 5, 5, 5)
         rob:SetSize(75, y)
         rob:SetFont("luco18")
         rob:SetColor(Color(255, 255, 255))
-        rob:SetText("Braquage")
+        rob:SetText(SHOPConfig.RobButtonText)
         rob.Paint = function(self, w, h)
             surface.SetDrawColor(255, 50, 50, 155)
             surface.DrawRect(0, 0, w, h)
         end
 
-// Création du bouton "Close"
+-- Creation of the "Close" button
     local Closebutton = vgui.Create("DImageButton", header)
         Closebutton:SetPos(x-29, 3)
         Closebutton:SetSize(26, 26)
@@ -110,10 +110,10 @@ local function Baseframe()
         
 
 
--- -- -- -- Menu de Nav -- -- -- --
+-- -- -- -- Nav menu -- -- -- --
 
 
-// Création du menu
+-- Creation of the menu
     local menu = vgui.Create("DPanel", Baseframe)
         menu:SetPos(0, 30)
         menu:SetSize(x, 30)
@@ -123,7 +123,7 @@ local function Baseframe()
         end
 
 
-// Création de la box du bouton "équipement"
+-- Creation of the "équipement" button box
     local boxequipement = vgui.Create("DPanel", menu)
         boxequipement:SetPos(0, 0)
         boxequipement:SetSize(x/4, 30)
@@ -132,20 +132,20 @@ local function Baseframe()
             surface.DrawRect(0, 0, w , h)
         end
 
-// Création du bouton "équipement"
+-- Creation of the "Equipment" button
     local equipement = vgui.Create("DButton", boxequipement)
         equipement:SetPos(5, 0)
         equipement:SetSize(x/4, 30)
         equipement:SetFont("luco18")
         equipement:SetTextColor(Color(255, 255, 255))
-        equipement:SetText("Équipements")
+        equipement:SetText("Equipment")
         equipement.Paint = function(self, w, h)
             surface.SetDrawColor(49, 49, 49)
             surface.DrawRect(0, 0, w, h)
         end
 
 
-// Création de la box du bouton "Arme"
+-- Creation of the "weapon" button box
     local boxweapon = vgui.Create("DPanel", menu)
         boxweapon:SetPos(x/4, 0)
         boxweapon:SetSize(x/4, 30)
@@ -154,20 +154,20 @@ local function Baseframe()
             surface.DrawRect(0, 0, w, h)
         end
 
-// Création du bouton "Arme"
+-- Creation of the "Weapon" button
     local weapon = vgui.Create("DButton", boxweapon)
         weapon:SetPos(5, 0)
         weapon:SetSize(x/4, 30)
         weapon:SetFont("luco18")
         weapon:SetTextColor(Color(255, 255, 255))
-        weapon:SetText("Armes")
+        weapon:SetText("Weapon")
         weapon.Paint = function(self, w, h)
             surface.SetDrawColor(49, 49, 49)
             surface.DrawRect(0, 0, w, h)
         end
 
 
-// Création de la box du bouton "munition"
+-- Creation of the "Ammo" button box
     local boxammo = vgui.Create("DPanel", menu)
         boxammo:SetPos(x/2, 0)
         boxammo:SetSize(x/4, 30)
@@ -176,20 +176,20 @@ local function Baseframe()
             surface.DrawRect(0, 0, w, h)
         end
 
-// Création du bouton "munition"
+-- Creation of the "Ammo" button
     local ammo = vgui.Create("DButton", boxammo)
         ammo:SetPos(5, 0)
         ammo:SetSize(x/4, 30)
         ammo:SetFont("luco18")
         ammo:SetTextColor(Color(255, 255, 255))
-        ammo:SetText("Munitions")
+        ammo:SetText("Ammo")
         ammo.Paint = function(self, w, h)
             surface.SetDrawColor(49, 49, 49)
             surface.DrawRect(0, 0, w, h)
         end
 
 
-// Création de la box du bouton "VIP"
+-- Creation of the "VIP" button box
     local boxvip = vgui.Create("DPanel", menu)
         boxvip:SetPos(x-x/4, 0)
         boxvip:SetSize(x/4, 30)
@@ -198,22 +198,22 @@ local function Baseframe()
             surface.DrawRect(0, 0, w, h)
         end
 
-// Création du bouton "VIP"
+-- Creation of the "VIP" button
     local vip = vgui.Create("DButton", boxvip)
         vip:SetPos(5, 0)
         vip:SetSize(x/4, 30)
         vip:SetFont("luco18")
         vip:SetTextColor(Color(255, 255, 255))
-        vip:SetText("VIP")
+        vip:SetText(SHOPConfig.VIPGroup)
         vip.Paint = function(self, w, h)
             surface.SetDrawColor(49, 49, 49)
             surface.DrawRect(0, 0, w, h)
         end
 
 
--- -- -- -- Pages du shop -- -- -- --
+-- -- -- -- SHOP Pages -- -- -- --
 
-// Création du parent
+-- Create the parent
     local shoppage = vgui.Create("DPanel", Baseframe)
         shoppage:SetPos(0, 60)
         shoppage:SetSize(x, y-60)
@@ -222,7 +222,7 @@ local function Baseframe()
             surface.DrawRect(0, 0, w, h)
         end
 
-// Création page équipement
+-- Creation of the "Equipment" page
     local pageequipement = vgui.Create("DScrollPanel", shoppage)
         pageequipement:SetPos(0, 0)
         pageequipement:SetSize(x, y-60)
@@ -232,7 +232,7 @@ local function Baseframe()
             surface.DrawRect(0, 0, w, h)
         end
 
-// Création page arme
+-- Creation of the "Weapon" page
     local pageweapon = vgui.Create("DScrollPanel", shoppage)
         pageweapon:SetPos(0, 0)
         pageweapon:SetSize(x, y-60)
@@ -242,7 +242,7 @@ local function Baseframe()
             surface.DrawRect(0, 0, w, h)
         end
 
-// Création page munition
+-- Creation of the "Ammo" page
     local pageammo = vgui.Create("DScrollPanel", shoppage)
         pageammo:SetPos(0, 0)
         pageammo:SetSize(x, y-60)
@@ -252,7 +252,7 @@ local function Baseframe()
             surface.DrawRect(0, 0, w, h)
         end
 
-// Création page vip
+-- Creation of the "VIP" page
     local pagevip = vgui.Create("DScrollPanel", shoppage)
         pagevip:SetPos(0, 0)
         pagevip:SetSize(x, y-60)
@@ -263,20 +263,20 @@ local function Baseframe()
         end
 
 
--- -- -- -- Fonction des boutons -- -- -- --
+-- -- -- -- All buttons function (i'm not stupid) -- -- -- --
 
 
-// Fonction du bouton "équipement"
+-- "Equipment" button function
     function equipement:DoClick()
-
-        pageequipement:SetVisible(true)
+		
+        pageequipement:SetVisible(true)		-- Wait, this actually work !
         pageweapon:SetVisible(false)
         pageammo:SetVisible(false)
         pagevip:SetVisible(false)
 
     end
 
-// Fonction du bouton "Armes"
+-- "Weapon" button function
     function weapon:DoClick()
         
         pageequipement:SetVisible(false)
@@ -286,7 +286,7 @@ local function Baseframe()
 
     end
 
-// Fonction du bouton "Munition"
+-- "Ammo" button function
     function ammo:DoClick()
         
         pageequipement:SetVisible(false)
@@ -296,7 +296,7 @@ local function Baseframe()
 
     end
 
-// Fonction du bouton "VIP"
+-- "VIP" button function
     function vip:DoClick()
         
         pageequipement:SetVisible(false)
@@ -307,15 +307,15 @@ local function Baseframe()
     end
 
 
-    local buybutton -- ne pas toucher
+    local buybutton -- DO NOT REMOVE ! (I don't know why but all this shit doesn't work without this)
 
 
 
--- -- -- -- Afficher les équipements -- -- -- --
+-- -- -- -- Show Equipments -- -- -- --
 
-for k, v in pairs(SHOPConfig.equipement) do
+    for k, v in pairs(SHOPConfig.equipement) do
 
-    // Créer le rectangle d'une arme
+    -- Create the rect of the object
         local weaponback = vgui.Create("DPanel", pageequipement)
             weaponback:Dock(TOP)
             weaponback:SetSize(0, 125)
@@ -325,21 +325,19 @@ for k, v in pairs(SHOPConfig.equipement) do
                 surface.DrawRect(0, 0, w, h)
             end
 
-    wX, wY = weaponback:GetSize(x, y)
+        wX, wY = weaponback:GetSize(x, y)
     
-    // Créer le model de l'arme
+    -- Create the model of the object
         local models = vgui.Create("SpawnIcon", weaponback)
             models:SetPos(5, 5)
             models:SetSize(x/8, 115)
             models:SetModel(v.Model)
             models:SetToolTip(false)
             models:SetDisabled(true)
-            function models:PaintOver()
-   
-            end
+            function models:PaintOver() end
 
 
-    // Créer le texte de l'arme et son prix
+    -- Show the object name and price
         local name = vgui.Create("DLabel", weaponback)
             name:SetPos(x/2.2, wY/3)
             name:SetSize(200, 50)
@@ -347,42 +345,42 @@ for k, v in pairs(SHOPConfig.equipement) do
             name:SetText(v.Name .. "\n" .. DarkRP.formatMoney(v.Price))
 
         
-    // Créer le bouton d'achat
+    -- Create the "Buy" button
         local buybutton = vgui.Create("DButton", weaponback)
             buybutton:Dock(RIGHT)
             buybutton:DockMargin(5, 10, 10, 10)
             buybutton:SetSize(x/9)
             buybutton:SetColor(Color(255, 255, 255))
-            buybutton:SetText("Acheter")
+            buybutton:SetText(SHOPConfig.BuyButtonText)
             buybutton.Paint = function(self, w, h)
                 surface.SetDrawColor(128, 35, 35, 200)
                 surface.DrawRect(0, 0, w, h)
             end
 
 
-    -- Définir un cooldown pour limiter la fréquence des messages
+    -- All this stuff is to init a cooldown to avoid network and notification spamming
         local lastNetTime = 0
-        local netCooldown = 2 -- en secondes
+        local netCooldown = 2 -- cooldown in seconds
 
-    -- Fonction d'achat de l'objet avec la protection anti-spam
+    -- "Buy" button function
         function buybutton:DoClick()
-        -- Récupérer l'heure actuelle
+        -- Getting actual time
             local currentTime = CurTime()
 
-        -- Vérifier si le temps écoulé depuis le dernier envoi de message est supérieur ou égal au temps de cooldown
+        -- Check if the time elapsed since the last message sent is greater than or equal to the cooldown time
             if (currentTime - lastNetTime) >= netCooldown then
-            -- Envoyer le message seulement si le cooldown a expiré
+            -- Send the message only if the cooldown is down
                 net.Start("PLYgive")
                 net.WriteString(v.cmd)
                 net.WriteInt(v.Price, 32)
                 net.SendToServer()
 
-            -- Mettre à jour le temps du dernier envoi de message
+            -- Update the time of the last message sent
                 lastNetTime = currentTime
             end
         end
 
-    // Notification d'erreur
+    -- Error notification
         net.Receive("NotifyError", function(len, ply)
         
            local errormsg = net.ReadString()
@@ -393,18 +391,16 @@ for k, v in pairs(SHOPConfig.equipement) do
         end)
         
 
-    end -- fin de la boucle
+    end -- end of the "Show Equipment" loop
 
 
 
 
--- -- -- -- Afficher les armes -- -- -- --
-
+-- -- -- -- Show Weapons -- -- -- --
 
 
     for k, v in pairs(SHOPConfig.weapon) do
 
-    // Créer le rectangle d'une arme
         local weaponback = vgui.Create("DPanel", pageweapon)
             weaponback:Dock(TOP)
             weaponback:SetSize(0, 125)
@@ -416,7 +412,6 @@ for k, v in pairs(SHOPConfig.equipement) do
 
     wX, wY = weaponback:GetSize(x, y)
     
-    // Créer le model de l'arme
         local models = vgui.Create("SpawnIcon", weaponback)
             models:SetPos(5, 5)
             models:SetSize(x/8, 115)
@@ -428,7 +423,6 @@ for k, v in pairs(SHOPConfig.equipement) do
             end
 
 
-    // Créer le texte de l'arme et son prix
         local name = vgui.Create("DLabel", weaponback)
             name:SetPos(x/2.2, wY/3)
             name:SetSize(200, 50)
@@ -436,43 +430,37 @@ for k, v in pairs(SHOPConfig.equipement) do
             name:SetText(v.Name .. "\n" .. DarkRP.formatMoney(v.Price))
 
         
-    // Créer le bouton d'achat
         local buybutton = vgui.Create("DButton", weaponback)
             buybutton:Dock(RIGHT)
             buybutton:DockMargin(5, 10, 10, 10)
             buybutton:SetSize(x/9)
             buybutton:SetColor(Color(255, 255, 255))
-            buybutton:SetText("Acheter")
+            buybutton:SetText(SHOPConfig.BuyButtonText)
             buybutton.Paint = function(self, w, h)
                 surface.SetDrawColor(128, 35, 35, 200)
                 surface.DrawRect(0, 0, w, h)
             end
 
 
-   -- Définir un cooldown pour limiter la fréquence des messages
         local lastNetTime = 0
-        local netCooldown = 2 -- en secondes
+        local netCooldown = 2
 
-    -- Fonction d'achat de l'objet avec la protection anti-spam
         function buybutton:DoClick()
-        -- Récupérer l'heure actuelle
+			
             local currentTime = CurTime()
 
-        -- Vérifier si le temps écoulé depuis le dernier envoi de message est supérieur ou égal au temps de cooldown
             if (currentTime - lastNetTime) >= netCooldown then
-            -- Envoyer le message seulement si le cooldown a expiré
+				
                 net.Start("PLYgive")
                 net.WriteString(v.cmd)
                 net.WriteInt(v.Price, 32)
                 net.SendToServer()
 
-            -- Mettre à jour le temps du dernier envoi de message
                 lastNetTime = currentTime
             end
         end
 
 
-    // Notification d'erreur
         net.Receive("NotifyError", function(len, ply)
         
            local errormsg = net.ReadString()
@@ -483,15 +471,14 @@ for k, v in pairs(SHOPConfig.equipement) do
         end)
         
 
-    end -- fin de la boucle
+    end
 
 
 
-    -- -- -- -- Afficher les munitions -- -- -- --
+    -- -- -- -- Show Ammos -- -- -- --
 
     for k, v in pairs(SHOPConfig.ammo) do
 
-        // Créer le rectangle d'une arme
             local weaponback = vgui.Create("DPanel", pageammo)
                 weaponback:Dock(TOP)
                 weaponback:SetSize(0, 125)
@@ -503,7 +490,6 @@ for k, v in pairs(SHOPConfig.equipement) do
     
         wX, wY = weaponback:GetSize(x, y)
         
-        // Créer le model de l'arme
             local models = vgui.Create("SpawnIcon", weaponback)
                 models:SetPos(0, 0)
                 models:SetSize(x/8, 115)
@@ -515,7 +501,6 @@ for k, v in pairs(SHOPConfig.equipement) do
                 end
     
     
-        // Créer le texte de l'arme et son prix
             local name = vgui.Create("DLabel", weaponback)
                 name:SetPos(x/2.2, wY/3)
                 name:SetSize(200, 50)
@@ -523,44 +508,36 @@ for k, v in pairs(SHOPConfig.equipement) do
                 name:SetText(v.Name .. "\n" .. DarkRP.formatMoney(v.Price))
     
             
-        // Créer le bouton d'achat
             local buybutton = vgui.Create("DButton", weaponback)
                 buybutton:Dock(RIGHT)
                 buybutton:DockMargin(5, 10, 10, 10)
                 buybutton:SetSize(x/9)
                 buybutton:SetColor(Color(255, 255, 255))
-                buybutton:SetText("Acheter")
+                buybutton:SetText(SHOPConfig.BuyButtonText)
                 buybutton.Paint = function(self, w, h)
                     surface.SetDrawColor(128, 35, 35, 200)
                     surface.DrawRect(0, 0, w, h)
                 end
     
     
--- Définir un cooldown pour limiter la fréquence des messages
         local lastNetTime = 0
-        local netCooldown = 1 -- en secondes
+        local netCooldown = 1
 
--- Fonction d'achat de l'objet avec la protection anti-spam
         function buybutton:DoClick()
     
-    -- Récupérer l'heure actuelle
         local currentTime = CurTime()
 
-    -- Vérifier si le temps écoulé depuis le dernier envoi de message est supérieur ou égal au temps de cooldown
         if (currentTime - lastNetTime) >= netCooldown then
 
-        -- Envoyer le message seulement si le cooldown a expiré
             net.Start("PLYgive")
             net.WriteString(v.cmd)
             net.WriteInt(v.Price, 32)
             net.SendToServer()
 
-        -- Mettre à jour le temps du dernier envoi de message
             lastNetTime = currentTime
         end
     end
     
-        // Notification d'erreur
             net.Receive("NotifyError", function(len, ply)
             
                local errormsg = net.ReadString()
@@ -571,15 +548,14 @@ for k, v in pairs(SHOPConfig.equipement) do
             end)
             
     
-        end -- fin de la boucle
+        end
 
 
 
-    -- -- -- -- Afficher le menu VIP -- -- -- --
+    -- -- -- -- Show VIPs Menu -- -- -- --
 
     for k, v in pairs(SHOPConfig.vip) do
 
-        // Créer le rectangle d'une arme
             local weaponback = vgui.Create("DPanel", pagevip)
                 weaponback:Dock(TOP)
                 weaponback:SetSize(0, 125)
@@ -591,7 +567,6 @@ for k, v in pairs(SHOPConfig.equipement) do
     
         wX, wY = weaponback:GetSize(x, y)
         
-        // Créer le model de l'arme
             local models = vgui.Create("SpawnIcon", weaponback)
                 models:SetPos(0, 0)
                 models:SetSize(x/8, 115)
@@ -602,8 +577,6 @@ for k, v in pairs(SHOPConfig.equipement) do
        
                 end
     
-    
-        // Créer le texte de l'arme et son prix
             local name = vgui.Create("DLabel", weaponback)
                 name:SetPos(x/2.2, wY/3)
                 name:SetSize(200, 50)
@@ -611,13 +584,12 @@ for k, v in pairs(SHOPConfig.equipement) do
                 name:SetText(v.Name .. "\n" .. DarkRP.formatMoney(v.Price))
     
             
-        // Créer le bouton d'achat
             local buybutton = vgui.Create("DButton", weaponback)
                 buybutton:Dock(RIGHT)
                 buybutton:DockMargin(5, 10, 10, 10)
                 buybutton:SetSize(x/9)
                 buybutton:SetColor(Color(255, 255, 255))
-                buybutton:SetText("Acheter")
+                buybutton:SetText(SHOPConfig.BuyButtonText)
                 buybutton.Paint = function(self, w, h)
                     surface.SetDrawColor(128, 35, 35, 200)
                     surface.DrawRect(0, 0, w, h)
@@ -625,20 +597,15 @@ for k, v in pairs(SHOPConfig.equipement) do
     
 
 
--- Définir un cooldown pour limiter la fréquence des messages
         local lastNetTime = 0
-        local netCooldown = 1 -- en secondes
+        local netCooldown = 1
 
--- Fonction d'achat de l'objet avec la protection anti-spam
         function buybutton:DoClick()
     
-    -- Récupérer l'heure actuelle
         local currentTime = CurTime()
 
-    -- Vérifier si le temps écoulé depuis le dernier envoi de message est supérieur ou égal au temps de cooldown
         if (currentTime - lastNetTime) >= netCooldown then
 
-        -- Envoyer le message seulement si le cooldown a expiré puis vérifier si le joueur est vip
             if LocalPlayer():IsUserGroup(SHOPConfig.VIPGroup) then
                         
                 net.Start("PLYgive")
@@ -655,12 +622,10 @@ for k, v in pairs(SHOPConfig.equipement) do
                 
             end
 
-        -- Mettre à jour le temps du dernier envoi de message
             lastNetTime = currentTime
         end
     end
 
-        // Fonction d'achat de l'objet
             function buybutton:DoClick()
                 if LocalPlayer():IsUserGroup(SHOPConfig.VIPGroup) then
                     
@@ -679,7 +644,6 @@ for k, v in pairs(SHOPConfig.equipement) do
                 end
             end
     
-        // Notification d'erreur
             net.Receive("NotifyError", function(len, ply)
             
                local errormsg = net.ReadString()
@@ -690,33 +654,29 @@ for k, v in pairs(SHOPConfig.equipement) do
             end)
             
     
-        end -- fin de la boucle
+        end
 
     
 
 
-   -- Définir un cooldown pour limiter la fréquence des messages
         local lastNetTime = 0
-        local netCooldown = 2 -- en secondes
+        local netCooldown = 2
 
-    -- Fonction d'achat de l'objet avec la protection anti-spam
         function rob:DoClick()
-        -- Récupérer l'heure actuelle
+		
             local currentTime = CurTime()
 
-        -- Vérifier si le temps écoulé depuis le dernier envoi de message est supérieur ou égal au temps de cooldown
             if (currentTime - lastNetTime) >= netCooldown then
-            -- Envoyer le message seulement si le cooldown a expiré
-                notification.AddLegacy("Fonction disponible dans la prochaine mise à jour!", NOTIFY_GENERIC, 5)
+			
+                notification.AddLegacy("This features is not available for the moment", NOTIFY_GENERIC, 5)
                 surface.PlaySound("buttons/button16.wav")
 
-            -- Mettre à jour le temps du dernier envoi de message
                 lastNetTime = currentTime
             end
         end
     
 
-end // ne rien mettre après cette ligne
+end -- Do not put anything after this line exept if you know what you are doing
 
 
 net.Receive("Baseframe", Baseframe) 
