@@ -1,4 +1,4 @@
 # OBTEY-S-SHOP-NPC
 This is a simple shop addon for Garry's Mod
 
-#https://imgur.com/sHPuQtw
+https://i.imgur.com/sHPuQtw.png
