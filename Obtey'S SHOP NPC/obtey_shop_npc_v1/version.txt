@@ -3,17 +3,12 @@ obtey'S
 SHOP NPC ADDON
 
 
-Version 1.2
+Version 1.0
 
 
 features :
 
-- 4 menus d'achat
-(équipements, armes, munitions et vip)
+- 4 pages
+(equipment, weapon, ammo and vip)
 
-- capacité à acheter des armes
-(vérification du wallet du joueur)
-
-- fichier config opérationnel
-
-- networking entre client et serveur opérationnel et sécurisé
+- Fully working config file
