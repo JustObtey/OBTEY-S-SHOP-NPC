@@ -1,0 +1,11 @@
+OBTEY'S - SHOP NPC ADDON
+
+release : 13/04/2023
+Version 1.1
+
+Update :
+
+- More options in the config file (display text on top of the npc head, choose the text, the model ...etc)
+- The code has been reorganized to be more simple to read and understandable
+- The "Free Gun" exploit has been fixed, you can't anymore give yourself items for free
+- Added extra layers of security into the serverside script to avoid any future exploits
