@@ -36,7 +36,7 @@ if SERVER then
         -- If player can't afford, print an error message in the chat
         if not canAfford then
             ply:ChatPrint("[SHOP] : " .. SHOPConfig.PurchaseFailedMsg2)
-            return end
+            return
         end
 
         -- If player have enough money and doesn't already have the item, we are taking the money and giving the item
