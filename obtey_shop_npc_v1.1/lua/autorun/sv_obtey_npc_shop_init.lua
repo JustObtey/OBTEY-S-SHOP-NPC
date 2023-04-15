@@ -64,6 +64,7 @@ if SERVER then
 
         if not canAfford then
             ply:ChatPrint("[SHOP] : " .. SHOPConfig.PurchaseFailedMsg2)
+            return
         end
 
         
@@ -91,6 +92,7 @@ if SERVER then
 
         if not canAfford then
             ply:ChatPrint("[SHOP] : " .. SHOPConfig.PurchaseFailedMsg2)
+            return
         end
 
         
@@ -118,6 +120,7 @@ if SERVER then
 
         if not canAfford then
             ply:ChatPrint("[SHOP] : " .. SHOPConfig.PurchaseFailedMsg2)
+            return
         end
 
         
