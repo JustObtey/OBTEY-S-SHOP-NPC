@@ -7,22 +7,22 @@ SHOPConfig.NPCModel = "models/mossman.mdl"      -- Define the model of the npc
 
 
 SHOPConfig.equipement = {
-    -- {Name = "Object name", Model = "His model", cmd = "His ID", Price = 100},
+    -- {Name = "Object name", Model = "His model", Entity = "His ID", Price = 100},
 }
 
 
 SHOPConfig.weapon = {
-    -- {Name = "Object name", Model = "His model", cmd = "His ID", Price = 100},
+    -- {Name = "Object name", Model = "His model", Entity = "His ID", Price = 100},
 }
 
 
 SHOPConfig.ammo = {
-    -- {Name = "Object name", Model = "His model", cmd = "His ID", Price = 100}, 
+    -- {Name = "Object name", Model = "His model", Entity = "His ID", Price = 100}, 
 }
 
 
 SHOPConfig.vip = {
-    -- {Name = "Object name", Model = "His model", cmd = "His ID", Price = 100},
+    -- {Name = "Object name", Model = "His model", Entity = "His ID", Price = 100},
 }
 
 
