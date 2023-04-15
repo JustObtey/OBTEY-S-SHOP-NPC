@@ -41,7 +41,7 @@ if SERVER then
 
         -- If player have enough money and doesn't already have the item, we are taking the money and giving the item
         ply:addMoney(-itemData.Price)
-        ply:Give(itemData.cmd)
+        ply:Give(itemData.Entity)
         ply:ChatPrint("[SHOP] : " .. SHOPConfig.PurchaseSucceedMsg)
         
     end) -- end of net.Receive
@@ -68,7 +68,7 @@ if SERVER then
 
         
         ply:addMoney(-itemData.Price)
-        ply:Give(itemData.cmd)
+        ply:Give(itemData.Entity)
         ply:ChatPrint("[SHOP] : " .. SHOPConfig.PurchaseSucceedMsg)
         
     end)
@@ -95,7 +95,7 @@ if SERVER then
 
         
         ply:addMoney(-itemData.Price)
-        ply:Give(itemData.cmd)
+        ply:Give(itemData.Entity)
         ply:ChatPrint("[SHOP] : " .. SHOPConfig.PurchaseSucceedMsg)
         
     end)
@@ -122,7 +122,7 @@ if SERVER then
 
         
         ply:addMoney(-itemData.Price)
-        ply:Give(itemData.cmd)
+        ply:Give(itemData.Entity)
         ply:ChatPrint("[SHOP] : " .. SHOPConfig.PurchaseSucceedMsg)
         
     end)
