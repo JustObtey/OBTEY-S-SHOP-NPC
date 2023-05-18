@@ -20,11 +20,11 @@ function ENT:OnTakeDamage()
 	return false
 end
 
-util.AddNetworkString("Baseframe")
+util.AddNetworkString("OBTEYSHOPBaseframe")
 
 function ENT:Use(act, ply)
 	if IsValid(ply) and ply:IsPlayer() then
-		net.Start("Baseframe")
+		net.Start("OBTEYSHOPBaseframe")
 		net.Send(ply)
 	end
 end
