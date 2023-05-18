@@ -620,4 +620,4 @@ local function Baseframe()
 end -- Do not put anything after this line exept if you know what you are doing
 
 
-net.Receive("Baseframe", Baseframe) 
+net.Receive("OBTEYSHOPBaseframe", Baseframe) 
